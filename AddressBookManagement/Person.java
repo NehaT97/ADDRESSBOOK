@@ -23,31 +23,38 @@ public class Person {
         return firstname;
     }
 
-    public void setFirstname(String firstname) {
+    public void setFirstname(String firstname)
+    {
         this.firstname = firstname;
     }
 
-    public String getLastname() {
+    public String getLastname()
+    {
         return lastname;
     }
 
-    public void setLastname(String lastname) {
+    public void setLastname(String lastname)
+    {
         this.lastname = lastname;
     }
 
-    public String getContactno() {
+    public String getContactno()
+    {
         return contactno;
     }
 
-    public void setContactno(String contactno) {
+    public void setContactno(String contactno)
+    {
         this.contactno = contactno;
     }
 
-    public ArrayList<Address> getAddress() {
+    public ArrayList<Address> getAddress()
+    {
         return address;
     }
 
-    public void setAddress(ArrayList<Address> address) {
+    public void setAddress(ArrayList<Address> address)
+    {
         this.address = address;
     }
 

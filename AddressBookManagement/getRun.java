@@ -1,99 +1,107 @@
 package com.AddressBookManagement;
-
-import java.util.Random;
 import java.util.Scanner;
 
 public class getRun {
 
-
-
     public static void main(String args[]) {
-        AddressBookManagerImplementation a1 = new AddressBookManagerImplementation();
-        AddressBookImplementation a2 = new AddressBookImplementation();
         Scanner sc = new Scanner(System.in);
 
-        while(true)
+        AddressBookManagerImplementation addressbookmanager = new AddressBookManagerImplementation();
+        AddressBookImplementation addressBook = new AddressBookImplementation();
+
+        int loop = 1;
+        while (loop == 1)
         {
             System.out.println("***********WELCOME TO ADDRESS BOOK MANAGEMENT*******");
-            System.out.println("Address Book" +"1].create address Book" +
-                    "2].open Existing address book " +
-                    "3].save address book" +
-                    "4].save As address book " +
-                    "5].close address book" );
+            System.out.println("\n" + "ADDRESS BOOK MENU" + "\n" + "1].create address Book" +
+                    "\n" + "2].open Existing address book " +
+                    "\n" + "3].save address book" +
+                    "\n" + "4].save As address book " +
+                    "\n" + "5].close address book");
 
-            System.out.println("Select any one choice");
-            int choice=sc.nextInt();
-            String firstname,lastname;
+            System.out.println("\nSelect any one choice");
+            int choice = sc.nextInt();
 
-            switch (choice)
-            {
-                case 1: a1.newAddressBook();
-                        a1.displayBook();
-                break;
+            switch (choice) {
+                case 1:
+                    addressbookmanager.newAddressBook();
+                    break;
 
                 case 2:
-                        while(true) {
-                            System.out.println("WELCOME TO ADDRESS BOOk");
-                            
-                            System.out.println("****MENU********");
-                            System.out.println("1].Add Person" +
-                                    "2].Edit Person" +
-                                    "3].Delete Person" +
-                                    "4].Sort By Name" +
-                                    "5].Sort By Zip" +
-                                    "6].Search Person" +
-                                    "7].Display" +
-                                    "8].Quit[Go to Main Menu]");
+                    addressbookmanager.openAddressBook();
+                    int value = 1;
+                    while (value == 1) {
+                        System.out.println("\n" + "WELCOME TO ADDRESS BOOk");
+                        System.out.println("****PERSON DETAILS********");
+                        System.out.println("1].Add Person" +
+                                "\n" + "2].Edit Person" +
+                                "\n" + "3].Delete Person" +
+                                "\n" + "4].Sort By Name" +
+                                "\n" + "5].Sort By Zip" +
+                                "\n" + "6].Search Person" +
+                                "\n" + "7].Display" +
+                                "\n" + "8].Quit[Go to Main Menu]");
 
-                            System.out.println("Enter the choice:");
-                            int ch = sc.nextInt();
-                            switch(ch)
-                            {
-                                case 1: a2.addPerson();
+                        System.out.println("\n" + "Enter the choice:");
+                        int ch1 = sc.nextInt();
+
+                        switch (ch1) {
+                            case 1:
+                                addressBook.addPerson();
                                 break;
 
-                                case 2: a2.editPerson();
+                            case 2:
+                                addressBook.editPerson();
                                 break;
 
-                                case 3: a2.deletePerson();
+                            case 3:
+                                addressBook.deletePerson();
                                 break;
 
-                                case 4: a2.sortByName();
+                            case 4:
+                                addressBook.sortByName();
                                 break;
 
-                                case 5: a2.sortByZip();
+                            case 5:
+                                addressBook.sortByZip();
                                 break;
 
-                                case 6: a2.searchPerson();
+                            case 6:
+                                addressBook.searchPerson();
                                 break;
 
-                                case 7: a2.display();
+                            case 7:
+                                addressBook.display();
                                 break;
 
-                                case 8: return;
+                            case 8:
+                                value = 0; //main menu
 
-                            }
-                            break;
+                            default:
+                                System.out.println("Back To Main Menu : Wrong Choice!!!");
+
                         }
+                    }
+                    break;
 
+                case 3:
+                    addressbookmanager.saveAddressBook();
+                    break;
 
-                case 3: a1.saveAddressBook();
-                break;
+                case 4:
+                    addressbookmanager.saveAsAddressBook();
+                    break;
 
-                case 4: a1.saveAsAddressBook();
-                break;
+                case 5:
+                    addressbookmanager.closeAddressBook();
+                    break;
 
-                case 5: a1.closeAddressBook();
-                break;
-
-                case 6: a1.quit();
-                break;
+                case 6:
+                    loop = 0;
 
                 default:
-                    System.out.println("Enter Wrong Choice");
+                    System.out.println(" Exit From Main Menu : Wrong Choice!!!");
             }
-
-
 
 
         }
