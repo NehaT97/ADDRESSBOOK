@@ -63,7 +63,13 @@ public class AddressBookImplementation  implements AddressBookInterface{
     }
 
 
-    public void display() {
+    public void display()
+    {
+        System.out.println("\nDISPLAYING ADDRESS BOOK DATA");
+        for (int i=0; i<addressbook.size(); i++)
+        {
+            System.out.println(addressbook.get(i));
+        }
 
     }
 
