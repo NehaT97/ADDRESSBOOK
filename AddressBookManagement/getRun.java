@@ -5,7 +5,6 @@ public class getRun {
 
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
-
         AddressBookManagerImplementation addressbookmanager = new AddressBookManagerImplementation();
         AddressBookImplementation addressBook = new AddressBookImplementation();
 
@@ -22,63 +21,80 @@ public class getRun {
             System.out.println("\nSelect any one choice");
             int choice = sc.nextInt();
 
+
             switch (choice) {
                 case 1:
+
                     addressbookmanager.newAddressBook();
                     break;
 
                 case 2:
-                    addressbookmanager.openAddressBook();
-                    int value = 1;
-                    while (value == 1) {
-                        System.out.println("\n" + "WELCOME TO ADDRESS BOOk");
-                        System.out.println("****PERSON DETAILS********");
-                        System.out.println("1].Add Person" +
-                                "\n" + "2].Edit Person" +
-                                "\n" + "3].Delete Person" +
-                                "\n" + "4].Sort By Name" +
-                                "\n" + "5].Sort By Zip" +
-                                "\n" + "6].Search Person" +
-                                "\n" + "7].Display" +
-                                "\n" + "8].Quit[Go to Main Menu]");
 
-                        System.out.println("\n" + "Enter the choice:");
-                        int ch1 = sc.nextInt();
+                        addressbookmanager.openAddressBook();
+                        int value = 1;
+                        while (value == 1) {
+                            System.out.println("\n" + "WELCOME TO ADDRESS BOOk");
+                            System.out.println("****PERSON DETAILS********");
+                            System.out.println("1].Add Person" +
+                                    "\n" + "2].Edit Person" +
+                                    "\n" + "3].Delete Person" +
+                                    "\n" + "4].Sort By Name" +
+                                    "\n" + "5].Sort By Zip" +
+                                    "\n" + "6].Search Person" +
+                                    "\n" + "7].Display" +
+                                    "\n" + "8].Quit[Go to Main Menu]");
+
+                            System.out.println("\n" + "Enter the choice:");
+                            int ch1 = sc.nextInt();
+                            String firstName,lastName ;
 
                         switch (ch1) {
                             case 1:
-                                addressBook.addPerson();
+                                    System.out.println("WELCOME TO ADDPERSON_OPERATION");
+                                    addressBook.addPerson();
                                 break;
 
                             case 2:
-                                addressBook.editPerson();
+
+                                    Scanner sc1=new Scanner(System.in);
+                                    System.out.println("WELCOME TO EDIT_OPERATION");
+                                    addressBook.editPerson();
+
+                                    //calling display function
+                                    System.out.println("You want to go to Display Menu to See the Changes In AddressBook(Yes/No)");
+                                    String input = sc1.nextLine();
+                                    if (input.equals("yes"))
+                                    {
+                                        addressBook.display();
+                                    }
+
                                 break;
 
                             case 3:
-                                addressBook.deletePerson();
-                                break;
+                                    addressBook.deletePerson();
+                                    break;
 
                             case 4:
-                                addressBook.sortByName();
-                                break;
+                                    addressBook.sortByName();
+                                    break;
 
                             case 5:
-                                addressBook.sortByZip();
-                                break;
+                                    addressBook.sortByZip();
+                                    break;
 
                             case 6:
-                                addressBook.searchPerson();
-                                break;
+                                    addressBook.searchPerson();
+                                    break;
 
                             case 7:
-                                addressBook.display();
-                                break;
+                                    addressBook.display();
+                                    break;
 
                             case 8:
-                                value = 0; //main menu
+                                    value = 0; //main menu
 
                             default:
-                                System.out.println("Back To Main Menu : Wrong Choice!!!");
+                                    System.out.println("Back To Main Menu : Wrong Choice!!!");
 
                         }
                     }
