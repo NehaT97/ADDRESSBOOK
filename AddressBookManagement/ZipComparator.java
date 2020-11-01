@@ -2,9 +2,8 @@ package com.AddressBookManagement;
 
 import java.util.Comparator;
 
-public class ZipComparator implements  Comparator<Person> {
-
-
+public class ZipComparator implements  Comparator<Person>
+{
 
     @Override
     public int compare(Person o1, Person o2)

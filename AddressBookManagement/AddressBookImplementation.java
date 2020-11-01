@@ -167,7 +167,20 @@ public class AddressBookImplementation  implements AddressBookInterface{
     @Override
     public void sortByName()
     {
-   
+        //data before sorting
+        System.out.println("Address Book Data:");
+        for (Person person : addressbook)
+        {
+            System.out.println(person.toString());
+        }
+
+        //data after sorting
+        Collections.sort(addressbook ,new NameComparator());
+        System.out.println("sorted by Name:");
+        for (Person person : addressbook)
+        {
+            System.out.println(person.toString());
+        }
  
     }
 
@@ -181,7 +194,7 @@ public class AddressBookImplementation  implements AddressBookInterface{
         }
 
         Collections.sort(addressbook ,new ZipComparator());
-        System.out.println("sorted by zp code:");
+        System.out.println("sorted by zip code:");
         for (Person person : addressbook)
         {
             System.out.println(person.toString());
