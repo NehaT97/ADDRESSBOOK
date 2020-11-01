@@ -117,11 +117,58 @@ public class AddressBookImplementation  implements AddressBookInterface{
     //Delete Person Using Contact
     public void deletePerson()
     {
-           
+            sc=new Scanner(System.in);
+            boolean loop=true;
+            while (true)
+            {
+                System.out.println("\nEnter the contact to delete person(contact / quit)");
+                String input = sc.nextLine();
+                if (input.equals("contact"))
+                {
+
+                    System.out.println("Enter contact number:");
+                    String phonenumber=sc.nextLine();
+
+                        for (int i=0; i<addressbook.size(); i++)
+                        {
+                            Person person =(Person)addressbook.get(i);
+                            if (person.getContactno().equals(phonenumber)) {
+                                System.out.println("\nContact Found:" + person.getContactno());
+                                addressbook.remove(i);
+                                System.out.println("\nContact Deleted Successfully :" + person.toString());
+
+                                //calling display function
+                                System.out.println("\nYou want to go to Display Menu to See the Changes In AddressBook(Yes/No)");
+                                input = sc.nextLine();
+                                if (input.equals("yes"))
+                                {
+                                    display();
+                                    System.out.println("\nData Is Deleted");
+                                }
+                                else
+                                    {
+                                    return;
+                                }
+                            }
+                            else {
+                                System.out.println("Entered Wrong Contact Number : Data Not Found!!!");
+                            }
+
+                        }
+
+                    }
+                    else{
+                        loop = false;
+                        System.out.println("Exit from DELETE function");
+                }
+            }
     }
 
     @Override
-    public void sortByName() {
+    public void sortByName()
+    {
+   
+ 
     }
 
     @Override
@@ -153,4 +200,6 @@ public class AddressBookImplementation  implements AddressBookInterface{
     public void quit() {
 
     }
+
+
 }
