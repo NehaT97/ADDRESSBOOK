@@ -174,7 +174,18 @@ public class AddressBookImplementation  implements AddressBookInterface{
     @Override
     public void sortByZip()
     {
-        
+        System.out.println("Address Book Data:");
+        for (Person person : addressbook)
+        {
+            System.out.println(person.toString());
+        }
+
+        Collections.sort(addressbook ,new ZipComparator());
+        System.out.println("sorted by zp code:");
+        for (Person person : addressbook)
+        {
+            System.out.println(person.toString());
+        }
 
     }
 
