@@ -71,6 +71,7 @@ public class getRun {
                                 break;
 
                             case 3:
+                                    System.out.println("WELCOME TO DELETE_OPERATION");
                                     addressBook.deletePerson();
                                     break;
 
@@ -83,6 +84,7 @@ public class getRun {
                                     break;
 
                             case 6:
+                                    System.out.println("WELCOME TO SEARCH OPERATION");
                                     addressBook.searchPerson();
                                     break;
 

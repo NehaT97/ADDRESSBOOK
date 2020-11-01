@@ -1,17 +1,21 @@
 package com.AddressBookManagement;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class AddressBookImplementation  implements AddressBookInterface{
 
-    Scanner sc=new Scanner(System.in);
+   private Scanner sc;
     public static ArrayList<Person> addressbook = new ArrayList<Person>();
+    private List<Address> AddressList;
 
     @Override
     //Person information addded
     public void addPerson()
     {
+            sc=new Scanner(System.in);
             System.out.println();
             System.out.println("Enter the FirstName");
             String firstname = sc.nextLine();
@@ -46,34 +50,34 @@ public class AddressBookImplementation  implements AddressBookInterface{
     //Edit Person Details
     public void editPerson()
     {
-            Scanner sc1=new Scanner(System.in);
-            System.out.println("\nEnter the FirstName And LastName To Find Records.\nFirstName");
-                String firstName=sc1.nextLine();
+                sc=new Scanner(System.in);
+                System.out.println("\nEnter the FirstName And LastName To Find Records.\nFirstName");
+                String firstName=sc.nextLine();
                 System.out.println("\nLastName");
-                String lastName = sc1.nextLine();
+                String lastName = sc.nextLine();
                 int loop=1;
                 for (Person person : addressbook)
                 {
                     if (person.getFirstname().equals(firstName)  &&  person.getLastname().equals(lastName))
                     {
-                        System.out.println("\nData Found as per match!!!");
-                        System.out.println( person.toString());
+                            System.out.println("\nData Found as per match!!!");
+                             System.out.println( person.toString());
                           while (loop==1)
                           {
                                     System.out.println("\n\n Enter what field you want to edit(address/contact/quit) : ");
-                                    String field = sc1.nextLine(); //taken input as address or contact
+                                    String field = sc.nextLine(); //taken input as address or contact
 
                                     if (field.equals("address")) {
                                         System.out.println("\n Enter Address : To Edit ");
 
                                         System.out.print("\b\n City : ");
-                                        String city = sc1.nextLine();
+                                        String city = sc.nextLine();
 
                                         System.out.print("\b\n State : ");
-                                        String state = sc1.nextLine();
+                                        String state = sc.nextLine();
 
                                         System.out.print("\n ZipCode: ");
-                                        int zip = sc1.nextInt();
+                                        int zip = sc.nextInt();
 
                                         //Adding Edited Address Related Data To Address arraylist
                                         Address address = new Address(city, state, zip);
@@ -87,7 +91,7 @@ public class AddressBookImplementation  implements AddressBookInterface{
 
                                     else if (field.equals("contact")) {
                                         System.out.print("\n Enter contact number : ");
-                                        String contact = sc1.nextLine();
+                                        String contact = sc.nextLine();
                                         person.setContactno(contact);
                                         System.out.println("\nContact Edited Successfuly :" + person.toString());
 
@@ -110,7 +114,10 @@ public class AddressBookImplementation  implements AddressBookInterface{
     }
 
     @Override
-    public void deletePerson() {
+    //Delete Person Using Contact
+    public void deletePerson()
+    {
+           
     }
 
     @Override
@@ -118,11 +125,17 @@ public class AddressBookImplementation  implements AddressBookInterface{
     }
 
     @Override
-    public void sortByZip() {
+    public void sortByZip()
+    {
+        
+
     }
 
+
     @Override
-    public void searchPerson() {
+    public void searchPerson()
+    {
+            
     }
 
 
