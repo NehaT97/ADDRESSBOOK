@@ -193,7 +193,20 @@ public class AddressBookImplementation  implements AddressBookInterface{
     @Override
     public void searchPerson()
     {
-            
+	    sc=new Scanner(System.in);
+            System.out.println("Enter the Contact Number To Find Person");
+            String Number=sc.nextLine();
+            for (Person person : addressbook)
+            {
+                if (person.getContactno().equals(Number))
+		{
+                    System.out.println("!! Person is found..." + person.toString());
+                }
+                else
+		{
+                    System.out.println("!! Name Not Found");
+                }
+            }   
     }
 
 
