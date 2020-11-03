@@ -1,9 +1,12 @@
 package com.AddressBookManagement;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 public class getRun {
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException {
         Scanner sc = new Scanner(System.in);
         AddressBookManagerImplementation addressbookmanager = new AddressBookManagerImplementation();
         AddressBookImplementation addressBook = new AddressBookImplementation();
@@ -33,7 +36,7 @@ public class getRun {
                         addressbookmanager.openAddressBook();
                         int value = 1;
                         while (value == 1) {
-                            System.out.println("\n" + "WELCOME TO ADDRESS BOOk");
+                            System.out.println("\n\n" + "WELCOME TO ADDRESS BOOk");
                             System.out.println("****PERSON DETAILS********");
                             System.out.println("1].Add Person" +
                                     "\n" + "2].Edit Person" +
@@ -76,10 +79,13 @@ public class getRun {
                                     break;
 
                             case 4:
+                                    System.out.println("WELCOME TO SORTING OPERATION(BYNAME)");
                                     addressBook.sortByName();
                                     break;
 
                             case 5:
+
+                                    System.out.println("WELCOME TO SORTING OPERATION(BYZIP)");
                                     addressBook.sortByZip();
                                     break;
 
@@ -89,11 +95,12 @@ public class getRun {
                                     break;
 
                             case 7:
+                                    System.out.println("WELCOME TO DISPLAY");
                                     addressBook.display();
                                     break;
 
                             case 8:
-                                    value = 0; //main menu
+                                    value = 0; // QUIT/main menu
 
                             default:
                                     System.out.println("Back To Main Menu : Wrong Choice!!!");
